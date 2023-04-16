@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
-import apiRickandMorty from "../functions/function";
-import axios from "axios";
+import { apiRickandMorty } from "../functions/function";
 
 function Home() {
   const [characters, setCharacters] = useState(null);
   //console.log(characters)
 
   useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character")
-      .then((response) => {
-        const data = response.data.results;
-        //console.log(data)
-        setCharacters(data);
-      })
-      .catch((error) => console.log(error));
+    apiRickandMorty(setCharacters);
+
   }, []);
 
   return (
@@ -23,7 +16,7 @@ function Home() {
         characters.map((character) => {
           return (
             <div key={character.id}>
-              <a href="#">{character.name}</a>
+              <a href={`/character/${character.id}`}>{character.name}</a>
               <img src={character.image} alt="" />
           
             </div>
