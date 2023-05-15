@@ -21,6 +21,7 @@ function Home() {
           return (
             <div key={character.id}>
               <a href={`/character/${character.id}`}>{character.name}</a>
+              <h3 onClick={()=> navigate(`/character/${character.id}`)}>{character.name}</h3>
               <img src={character.image} alt="" />
           
             </div>
