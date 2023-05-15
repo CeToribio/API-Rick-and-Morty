@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { apiRickandMorty } from "../functions/function";
 
 function Home() {
   const [characters, setCharacters] = useState(null);
   console.log(characters)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     apiRickandMorty(setCharacters);
@@ -12,6 +15,7 @@ function Home() {
 
   return (
     <>
+      <button onClick={()=> navigate('/prueba')}>holissss</button>
       {characters != null ? (
         characters.map((character) => {
           return (
