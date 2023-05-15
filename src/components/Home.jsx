@@ -3,7 +3,7 @@ import { apiRickandMorty } from "../functions/function";
 
 function Home() {
   const [characters, setCharacters] = useState(null);
-  //console.log(characters)
+  console.log(characters)
 
   useEffect(() => {
     apiRickandMorty(setCharacters);
